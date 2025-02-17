@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM sur les Fruits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>QCM : Connaissez-vous les Fruits ?</h1>
+    <form id="qcmForm">
+        <!-- Question 1 -->
+        <div class="question">
+            <p><strong>1. Quel fruit est connu pour être jaune et courbé ?</strong></p>
+            <label><input type="radio" name="q1" value="a"> Pomme</label><br>
+            <label><input type="radio" name="q1" value="b"> Banane</label><br>
+            <label><input type="radio" name="q1" value="c"> Orange</label><br>
+            <label><input type="radio" name="q1" value="d"> Fraise</label>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <p><strong>2. Quel fruit est souvent utilisé pour faire du vin ?</strong></p>
+            <label><input type="radio" name="q2" value="a"> Raisin</label><br>
+            <label><input type="radio" name="q2" value="b"> Citron</label><br>
+            <label><input type="radio" name="q2" value="c"> Kiwi</label><br>
+            <label><input type="radio" name="q2" value="d"> Mangue</label>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <p><strong>3. Quel fruit a une peau épaisse et orange ?</strong></p>
+            <label><input type="radio" name="q3" value="a"> Pomme</label><br>
+            <label><input type="radio" name="q3" value="b"> Orange</label><br>
+            <label><input type="radio" name="q3" value="c"> Poire</label><br>
+            <label><input type="radio" name="q3" value="d"> Cerise</label>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <p><strong>4. Quel fruit est rouge et a des graines à l'extérieur ?</strong></p>
+            <label><input type="radio" name="q4" value="a"> Fraise</label><br>
+            <label><input type="radio" name="q4" value="b"> Pastèque</label><br>
+            <label><input type="radio" name="q4" value="c"> Pêche</label><br>
+            <label><input type="radio" name="q4" value="d"> Ananas</label>
+        </div>
+
+        <!-- Bouton de soumission -->
+        <button type="button" onclick="verifierReponses()">Vérifier mes réponses</button>
+    </form>
+
+    <!-- Section pour afficher le résultat -->
+    <div id="resultat"></div>
+
+    <!-- Script JavaScript pour vérifier les réponses -->
+    <script>
+        function verifierReponses() {
+            const reponsesCorrectes = {
+                q1: "b",
+                q2: "a",
+                q3: "b",
+                q4: "a"
+            };
+
+            let score = 0;
+
+            // Vérifier chaque réponse
+            for (const [question, reponse] of Object.entries(reponsesCorrectes)) {
+                const choix = document.querySelector(`input[name="${question}"]:checked`);
+                if (choix && choix.value === reponse) {
+                    score++;
+                }
+            }
+
+            // Afficher le résultat
+            const resultatDiv = document.getElementById("resultat");
+            resultatDiv.innerHTML = `<h2>Votre score : ${score}/4</h2>`;
+            
+            if (score === 4) {
+                resultatDiv.innerHTML += "<p>Bravo ! Vous êtes un expert en fruits ! 🍎🍌🍇🍓</p>";
+            } else if (score >= 2) {
+                resultatDiv.innerHTML += "<p>Pas mal, mais vous pouvez faire mieux ! 😊</p>";
+            } else {
+                resultatDiv.innerHTML += "<p>Il est temps de réviser vos connaissances sur les fruits ! 🍍🍋🍒</p>";
+            }
+        }
+    </script>
+</body>
+</html>
