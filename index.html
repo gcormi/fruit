@@ -74,7 +74,6 @@
     <!-- Section pour afficher le résultat -->
     <div id="resultat"></div>
 
-    <!-- Script JavaScript pour vérifier les réponses -->
     <script>
         function verifierReponses() {
             const reponsesCorrectes = {
@@ -97,13 +96,13 @@
             // Afficher le résultat
             const resultatDiv = document.getElementById("resultat");
             resultatDiv.innerHTML = `<h2>Votre score : ${score}/4</h2>`;
-            
+
             if (score === 4) {
-                resultatDiv.innerHTML += "<p>Bravo ! Vous êtes un expert en fruits ! 🍎🍌🍇🍓</p>";
+                resultatDiv.innerHTML += "<p>Bravo ! Vous êtes un expert en fruits !</p>";
             } else if (score >= 2) {
-                resultatDiv.innerHTML += "<p>Pas mal, mais vous pouvez faire mieux ! 😊</p>";
+                resultatDiv.innerHTML += "<p>Pas mal, mais vous pouvez faire mieux !</p>";
             } else {
-                resultatDiv.innerHTML += "<p>Il est temps de réviser vos connaissances sur les fruits ! 🍍🍋🍒</p>";
+                resultatDiv.innerHTML += "<p>Il est temps de réviser vos connaissances sur les fruits !</p>";
             }
         }
     </script>
